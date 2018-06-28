@@ -1,19 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { PodcastService } from './podcast.service';
+import { PodcastService } from './/services/podcast.service';
 import { MainComponent } from './main/main.component'
-import { HttpClientModule } from '@angular/common/http';
 
-import { MatCardModule, MatGridListModule } from '@angular/material';
+import { MatCardModule, MatGridListModule, MatInputModule } from '@angular/material';
+import { SearchPipe } from './pipes/search.pipe';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent
+    MainComponent,
+    DetailsComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +26,8 @@ import { MatCardModule, MatGridListModule } from '@angular/material';
     HttpClientModule,
     MatCardModule,
     MatGridListModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [PodcastService],
   bootstrap: [AppComponent]

@@ -2,6 +2,7 @@ mat-grid-tile mat-card {
     max-height: 150px;
     width: 100%;
     margin: 0 10px 0 10px;
+    cursor: pointer;
 }
 mat-card img {
     position: absolute;
@@ -23,12 +24,25 @@ mat-card p {
 }
 mat-grid-tile {
     overflow: inherit;
+    margin-top: 30px;
 }
-.title-card {
-    padding: 10px;
+.search-container {
+    position: absolute;
+    right: 10px;
 }
-.title-card h2 {
-    padding: 0;
-    color: #5184c8;
+.search-container span {
+    margin: 10px;
+    background-color: #8bb8f2;
+    padding: 1px 4px 1px 4px;
+    border-radius: 11px;
+    color: #fff;
+    display: inline-block;
+    width: 25px;
     text-align: center;
+}
+input {
+    padding: 5px;
+}
+mat-grid-list {
+    top: 30px;
 }

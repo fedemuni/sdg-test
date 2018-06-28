@@ -1,14 +1,14 @@
 <ng-container *ngIf="podcasts">
-  <mat-card class="title-card">
-    <h2>Podcaster</h2>
-  </mat-card>
-  <input placeholder="Filter Podcasts">
+  <div class="search-container">
+    <span>{{(podcasts | search:searchText)?.length}}</span>
+    <input [(ngModel)]="searchText" placeholder="Filter Podcasts">
+  </div>
   <mat-grid-list cols="4" rowHeight="4:1" rowHeight="300px">
-    <mat-grid-tile *ngFor="let podcast of podcasts">
-      <mat-card>
+    <mat-grid-tile *ngFor="let podcast of podcasts | search:searchText">
+      <mat-card (click)="onSelect(podcast)">
         <img [src]="podcast.poster">
         <h4>{{podcast.title}}</h4>
-        <p>{{podcast.author}}</p>
+        <p>Author: {{podcast.author}}</p>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>

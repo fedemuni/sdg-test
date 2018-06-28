@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { PodcastService } from '../podcast.service';
-import { Title } from '@angular/platform-browser';
-import { MatCardModule } from '@angular/material/card';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { PodcastService } from '../services/podcast.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +8,11 @@ import { MatCardModule } from '@angular/material/card';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-
+  @ViewChild('podcastsCount') filteredItems;
+  /**
+   * Search by author or title
+   */
+  searchText: string;
   /**
    * Contains Podcast to show
    */
@@ -18,7 +21,10 @@ export class MainComponent implements OnInit {
    * Injectors here
    * @param podcastService Injected podcast service
    */
-  constructor( public podcastService: PodcastService ) { }
+  constructor( 
+    public podcastService: PodcastService,
+    private router: Router) { 
+    }
 
   ngOnInit() {
     this.podcastService.getPodcasts().subscribe((response: any) => {
@@ -33,6 +39,10 @@ export class MainComponent implements OnInit {
       });
       console.log(this.podcasts);
     })
+  }
+
+  onSelect(podcast: any) {
+    this.router.navigate(['../details', podcast.id ]);
   }
 
 }

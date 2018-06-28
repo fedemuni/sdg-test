@@ -1,0 +1,12 @@
+.title-card h2 {
+    padding: 0;
+    color: #5184c8;
+    text-align: center;
+}
+.title-card {
+    padding: 10px;
+    margin-bottom: 30px;
+}
+a{
+    text-decoration: none;
+}
