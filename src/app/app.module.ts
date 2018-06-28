@@ -4,15 +4,25 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { PodcastService } from './podcast.service';
+import { MainComponent } from './main/main.component'
+import { HttpClientModule } from '@angular/common/http';
+
+import { MatCardModule, MatGridListModule } from '@angular/material';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatCardModule,
+    MatGridListModule,
   ],
-  providers: [],
+  providers: [PodcastService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
