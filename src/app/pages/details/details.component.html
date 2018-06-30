@@ -1,0 +1,5 @@
+<mat-card (click)="onSelect(podcast)" *ngIf="podcast">
+  <img [src]="podcast.poster">
+  <h4>{{podcast.title}}</h4>
+  <p>Author: {{podcast.author}}</p>
+</mat-card>

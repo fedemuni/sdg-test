@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { PodcastService } from '../services/podcast.service';
+import { PodcastService } from '../../services/podcast.service';
 import { Router } from '@angular/router';
 
 @Component({

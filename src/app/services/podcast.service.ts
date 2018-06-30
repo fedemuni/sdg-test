@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,9 @@ export class PodcastService {
   }
 
   getPodcastById(id)  {
-    return this.http.get(this.apiUrl + '/itunes.apple.com/lookup/' + id)
+    let params = new HttpParams()
+    .set('id', id)
+    return this.http.get('https://crossorigin.me/' + this.apiUrl + '/lookup?' + params)
   }
 
 }
